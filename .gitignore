@@ -1,0 +1,6 @@
+$ cat .gitignore
+*.[oa]
+*~
+.idea/
+__pycache__/
+venv/
