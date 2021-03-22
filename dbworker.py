@@ -3,9 +3,11 @@ import config
 import random
 import openpyxl
 
+'''
 wb = openpyxl.reader.excel.load_workbook(filename="C:/Users/mipti/Desktop/table.xlsx")
 wb.active = 0
 sheet = wb.active
+'''
 
 db = sqlite3.connect('server.db', check_same_thread=False)
 sql = db.cursor()
