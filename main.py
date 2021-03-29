@@ -49,7 +49,7 @@ def user_entering_surname(message):
         dbworker.set_question(message.chat.id, 1, 'q2')
         # KEYBOARD
         keyboard = telebot.types.ReplyKeyboardMarkup(True)
-        keyboard.row('/нет', '/нет', '/start')
+        keyboard.row('/да', '/нет', '/start')
         bot.send_message(message.chat.id, "3. Есть только симптомы накопления?", reply_markup=keyboard)
     elif (message.text == '/нет'):
         dbworker.set_state(message.chat.id, config.States.Q_3.value)
@@ -218,7 +218,7 @@ def user_entering_surname(message):
         dbworker.set_question(message.chat.id, 2, 'q9')
         # KEYBOARD
         keyboard = telebot.types.ReplyKeyboardMarkup(True)
-        keyboard.row('/более_100', '/50-100', '/0_50', '/start')
+        keyboard.row('/2', '/1', '/0', '/start')
         bot.send_message(message.chat.id, "10. Остаточный объем мочи? (выберите диапазон)", reply_markup=keyboard)
         
     elif (message.text == '/10_15'):

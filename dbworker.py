@@ -3,11 +3,11 @@ import config
 import random
 import openpyxl
 
-'''
+
 wb = openpyxl.reader.excel.load_workbook(filename="C:/Users/mipti/Desktop/table.xlsx")
 wb.active = 0
 sheet = wb.active
-'''
+
 
 db = sqlite3.connect('server.db', check_same_thread=False)
 sql = db.cursor()
@@ -24,8 +24,7 @@ sql.execute("""CREATE TABLE IF NOT EXISTS users (
     q7 INTEGER,
     q8 INTEGER,
     q9 INTEGER,
-    q10 INTEGER
-        
+    q10 INTEGER 
 )""")
 
 
@@ -85,7 +84,12 @@ def search(user_id):
     q9 = sql.fetchone()[0]
     sql.execute(f"SELECT q10 FROM users WHERE username = '{user_id}'")
     q10 = sql.fetchone()[0]
-    for i in range(1, 3457):
+
+    sql.execute(f"SELECT res FROM results WHERE q1 = '{q1}' AND q2 = '{q2}' AND q3 = '{q3}' AND q4 = '{q4}' AND "
+                f"q5 = '{q5}' AND q6 = '{q6}' AND q7 = '{q7}' AND q8 = '{q8}' AND q9 = '{q9}' AND q10 = '{q10}'")
+    res = sql.fetchone()[0]
+
+    '''for i in range(1, 3457):
         if (str(sheet['A' + str(i)].value) == str(q1) and
                 str(sheet['B' + str(i)].value) == str(q2) and
                 str(sheet['C' + str(i)].value) == str(q3) and
@@ -97,6 +101,7 @@ def search(user_id):
                 str(sheet['I' + str(i)].value) == str(q9) and
                 str(sheet['J' + str(i)].value) == str(q10)):
             print('EBAAAT ', sheet['k' + str(i)].value)
-            return str(sheet['k' + str(i)].value)
+            return str(sheet['k' + str(i)].value)'''
+    return res
 
 
