@@ -3,12 +3,12 @@ Description=Telegram Bot
 After=network.target
 
 [Service]
-User=ivan
-Group=ivan
+User=root
+Group=root
 
-WorkingDirectory=/home/ivan/uro/
-Environment="PYTHONPATH=/home/ivan/uro/"
-ExecStart=/home/ivan/uro/main.py
+WorkingDirectory=/root/project/uro
+Environment="PYTHONPATH=/root/project/uro"
+ExecStart=/root/project/uro/venv/Scripts/python.exe /root/project/uro/main.py
 
 [Install]
 WantedBy=multi-user.target
